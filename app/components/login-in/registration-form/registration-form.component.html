@@ -1,0 +1,114 @@
+<ion-header>
+  <mat-toolbar color="primary" class="app-toolbar mat-elevation-z4">
+
+    <div class="toolbar-container">
+
+      <!-- LOGO -->
+      <div class="header-left">
+        <a class="logo" routerLink="/">
+          <div class="logo-icon-wrapper">
+            <mat-icon>search</mat-icon>
+          </div>
+          <span class="logo-text">Go<span>To</span></span>
+        </a>
+      </div>
+
+      <span class="spacer"></span>
+    </div>
+
+    <button mat-button routerLink="/login" (click)="closeMenu()" class="action-btn">
+      <mat-icon>login</mat-icon>
+      <span class="button-text">Login</span>
+    </button>
+
+
+    <button mat-button routerLink="/home" (click)="closeMenu()">
+      <mat-icon>arrow_back</mat-icon>
+      Back
+    </button>
+
+
+  </mat-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <mat-card>
+    <mat-card-content>
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+        <!-- Name -->
+        <mat-form-field appearance="outline">
+          <mat-icon matPrefix>person</mat-icon>
+          <input matInput placeholder="Name" formControlName="name">
+          @if (registerForm.get('name')?.hasError('required')) {
+          <mat-error>Name is required</mat-error>
+          }
+        </mat-form-field>
+
+        <!-- Surname -->
+        <mat-form-field appearance="outline">
+          <mat-icon matPrefix>person</mat-icon>
+          <input matInput placeholder="Surname" formControlName="surname">
+          @if (registerForm.get('surname')?.hasError('required')) {
+          <mat-error>Surname is required</mat-error>
+          }
+        </mat-form-field>
+
+        <!-- Email -->
+        <mat-form-field appearance="outline">
+          <mat-icon matPrefix>email</mat-icon>
+          <input matInput placeholder="Email" formControlName="email">
+          @if (registerForm.get('email')?.hasError('required')) {
+          <mat-error>Email is required</mat-error>
+          }
+          @if (registerForm.get('email')?.hasError('email')) {
+          <mat-error>Invalid email format</mat-error>
+          }
+        </mat-form-field>
+
+        <!-- Password -->
+        <mat-form-field appearance="outline">
+          <mat-icon matPrefix>lock</mat-icon>
+          <input matInput type="password" placeholder="Password" formControlName="password">
+          @if (registerForm.get('password')?.hasError('required')) {
+          <mat-error>Password is required</mat-error>
+          }
+        </mat-form-field>
+
+        <!-- Repeat Password with toggle -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Repeat Password</mat-label>
+          <mat-icon matPrefix>lock_reset</mat-icon>
+          <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="repeatPassword"
+            autocomplete="new-password" placeholder="Repeat Password">
+
+          <button mat-icon-button matSuffix type="button" (click)="hidePassword = !hidePassword">
+            <mat-icon>
+              {{ hidePassword ? 'visibility_off' : 'visibility' }}
+            </mat-icon>
+          </button>
+
+          @if (registerForm.get('repeatPassword')?.hasError('required')) {
+          <mat-error>Repeat password is required</mat-error>
+          }
+        </mat-form-field>
+
+        <!-- Terms -->
+        <p class="terms">
+          <mat-icon>gavel</mat-icon>
+          By creating an account you agree to our
+          <a routerLink="/terms">Terms & Privacy</a>.
+        </p>
+
+        <!-- Submit -->
+        <button mat-raised-button color="primary" class="full-width" type="submit">
+          <mat-icon>how_to_reg</mat-icon>
+          Register
+        </button>
+
+      </form>
+    </mat-card-content>
+  </mat-card>
+
+  <app-footer></app-footer>
+</ion-content>

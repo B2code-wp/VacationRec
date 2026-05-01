@@ -1,0 +1,146 @@
+<section id="tasks" class="tasks-container">
+
+  <!-- HEADER -->
+  <mat-toolbar color="primary" class="tasks-header mat-elevation-z2">
+
+    <!-- LEFT -->
+    <div class="header-left">
+      <mat-icon class="header-icon">assignment</mat-icon>
+
+      <div class="title-group">
+        <h2 class="title">{{ name || 'Guest' }}'s Tasks</h2>
+        <span class="subtitle">Manage your daily tasks</span>
+      </div>
+    </div>
+
+    <!-- RIGHT -->
+    <span class="spacer"></span>
+
+    <button
+      mat-raised-button
+      color="accent"
+      (click)="onStartAddTask()"
+      aria-label="Add new task"
+    >
+      <mat-icon>add</mat-icon>
+      <span class="btn-text">Add Task</span>
+    </button>
+
+  </mat-toolbar>
+
+  <!-- TASK CARD -->
+  <mat-card class="task-card mat-elevation-z1">
+
+    <!-- CARD HEADER -->
+    <mat-card-header>
+      <mat-card-title>
+        <mat-icon class="section-icon">list</mat-icon>
+        Task List
+      </mat-card-title>
+    </mat-card-header>
+
+
+    <!-- CARD CONTENT -->
+    <mat-card-content>
+
+      <!-- EMPTY STATE -->
+      @if (selectedUserTask.length === 0) {
+        <div class="empty-state" role="status">
+          <mat-icon class="empty-icon">task_alt</mat-icon>
+
+          <p>No tasks yet. Start by adding one.</p>
+
+          <button
+            mat-stroked-button
+            color="primary"
+            (click)="onStartAddTask()"
+          >
+            <mat-icon>add_circle</mat-icon>
+            Create Task
+          </button>
+        </div>
+      }
+
+      <!-- TASK LIST -->
+      @if (selectedUserTask.length > 0) {
+        <ul class="task-list" role="list">
+          @for (task of selectedUserTask; track task.id) {
+            <li class="task-item" role="listitem">
+              <app-task-list
+                [task]="task"
+                (complete)="onCompleteTask($event)">
+              </app-task-list>
+            </li>
+          }
+        </ul>
+      }
+
+    </mat-card-content>
+
+    <!-- CARD ACTIONS -->
+    <mat-card-actions align="end">
+      <button
+        mat-button
+        color="primary"
+        (click)="onStartAddTask()"
+      >
+        <mat-icon>add</mat-icon>
+        Add Task
+      </button>
+    </mat-card-actions>
+
+  </mat-card>
+
+  <!-- MODAL -->
+  @if (isAddingTask) {
+
+    <!-- BACKDROP -->
+    <div
+      class="backdrop"
+      (click)="onCancelTask()"
+      aria-hidden="true">
+    </div>
+
+    <!-- DIALOG -->
+    <div
+      class="task-modal mat-elevation-z5"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="add-task-title"
+    >
+
+      <!-- MODAL HEADER -->
+      <div class="modal-header">
+        <div class="modal-title">
+          <mat-icon>note_add</mat-icon>
+          <h3 id="add-task-title">New Task</h3>
+        </div>
+
+        <button
+          mat-icon-button
+          (click)="onCancelTask()"
+          aria-label="Close dialog"
+        >
+          <mat-icon>close</mat-icon>
+        </button>
+      </div>
+
+
+      <!-- MODAL CONTENT -->
+      <div class="modal-content">
+        <app-new-task
+          [userId]="userId"
+          [title]="newTaskTitle"
+          (cancel)="onCancelTask()">
+        </app-new-task>
+      </div>
+
+      <!-- MODAL ACTIONS (optional future use) -->
+      <div class="modal-actions">
+        <!-- You can add save/cancel buttons here later -->
+      </div>
+
+    </div>
+  }
+
+</section>

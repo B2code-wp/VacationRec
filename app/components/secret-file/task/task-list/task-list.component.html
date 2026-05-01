@@ -1,0 +1,14 @@
+<section class="card">
+ <article>
+    <h2>{{ task.title }}</h2> <!--task-list component to show each task-->
+
+    <time>{{ task.dueDate | date: 'fullDate'}}</time> <!--I can use date pipe | here to format the date which is a built in to angular Wednesday,output for the date: 'fullDate' is December 31, 2025-->
+       <!--<time>{{ task.dueDate | date }}</time> the time output is Dec 31, 2025-->
+
+     <p>{{ task.summary }}</p> <!--I can use slice pipe here to limit the number of characters shown-->
+    <p class="actions">
+        <button (click)="onCompleteTask()">Complete</button>
+    </p>
+
+ </article>
+</section>

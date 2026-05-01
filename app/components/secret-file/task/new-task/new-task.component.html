@@ -1,0 +1,35 @@
+<section id="new-task">
+
+<div class="backdrop" (click)="onCancel()"></div> <!-- when clicking on the background of the new-task to go back to the task-list -->
+<dialog open>
+
+  <form (ngSubmit)="onSubmit()"> <!--(ngSubmit)="" will listen for the onSubmit().... FormsModule[(ngModel)] <input type="submit">-->
+    <h2>Add Task</h2>
+
+    <p>
+      <label for="title">Title:</label>
+      <input type="text" id="title" name="title" [(ngModel)]="enteredTitle"/><!--set up two way Binging, ngModel give access to the value entered in the input by the user -->
+    </p>
+
+    <p>
+      <label for="summary">Summary:</label>
+    <textarea id="summary" rows="5" name="summary" [(ngModel)]="enteredSummary"></textarea><!--set up two way Binging via the ngModel for enteredSummery-->
+    </p>
+
+    <p>
+      <label for="due-date">Due Date:</label>
+      <input type="date" id="due-date" name="due-date"  [(ngModel)]="enteredDueDate"/><!--set up two way Binging via the ngModel for enteredDueDate-->
+    </p>
+
+    <p class="actions">
+
+     <!-- Cancel button triggers the onCancel method -->
+     <button type="button" (click)="onCancel()">Cancel</button>
+
+      <button (click)=" onSubmit()" type="submit">Create</button>  <!--this button creates the new task-->
+    </p>
+
+  </form>
+</dialog>
+</section>
+

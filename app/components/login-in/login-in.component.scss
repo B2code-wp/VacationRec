@@ -1,0 +1,623 @@
+/* =========================
+   GLOBAL BACKGROUND
+========================= */
+ion-content {
+  --background:     url("https://images.unsplash.com/photo-1493558103817-58b2924bce98?w=1600&auto=format&fit=crop&q=60")
+      no-repeat center/cover;
+  font-family: "Segoe UI", sans-serif;
+}
+/* HEADER */
+.app-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 0 16px;
+
+  .toolbar-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+
+  /* LOGO */
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+
+    .logo-icon-wrapper {
+      background: rgba(255, 255, 255, 0.15);
+      padding: 6px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-text {
+      font-size: 20px;
+      font-weight: 600;
+
+      span {
+        color: #ffcc00;
+      }
+    }
+  }
+
+  /* SPACER */
+  .spacer {
+    flex: 1;
+  }
+
+  /* ACTION BUTTONS */
+  .actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    .action-btn {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      border-radius: 8px;
+      padding: 6px 12px;
+      background-color: #e38f8f16;
+      color: rgb(0, 0, 0);
+      transition: all 0.3s ease;
+
+      mat-icon {
+        font-size: 20px;
+      }
+
+      &:hover {
+        background: rgba(255, 234, 5, 0.473);
+      }
+    }
+  }
+
+  /* MOBILE TOGGLE */
+  .menu-toggle {
+    display: none;
+    color: rgb(0, 0, 0);
+  }
+
+  /* MOBILE MENU */
+  .mobile-menu {
+    display: none;
+    flex-direction: column;
+    background: #fee272;
+
+    border-radius: 20px 20px 20px;
+    padding: 10px 16px;
+    gap: 10px;
+    margin-top: auto;
+
+    button {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      justify-content: flex-start;
+      color: rgb(0, 0, 0);
+    }
+  }
+
+  .mobile-menu.open {
+    display: flex;
+  }
+}
+/* =========================
+   TOOLBAR
+========================= */
+.app-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+  background: linear-gradient(135deg, #ffffff, #fdfdfdfb);
+  color: #fff;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: white;
+  font-weight: 800;
+  font-size: 1.2rem;
+}
+
+.btn-nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 6px 12px;
+  border-radius: 10px;
+
+  background-color: rgba(0, 0, 0, 0.06);
+  color: #000;
+
+  font-weight: 500;
+  transition: all 0.25s ease;
+
+  mat-icon {
+    font-size: 20px;
+  }
+
+  .btn-text {
+    font-size: 0.95rem;
+  }
+
+  &:hover {
+    background: rgba(255, 234, 5, 0.45);
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: scale(0.97);
+  }
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+  .btn-nav {
+    padding: 6px 10px;
+    gap: 6px;
+  }
+
+  .btn-text {
+    font-size: 0.85rem;
+  }
+
+  mat-icon {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .btn-nav {
+    padding: 6px 8px;
+    border-radius: 8px;
+  }
+
+  .btn-text {
+    display: none; /* icons only on very small screens */
+  }
+}
+.logo-icon-wrapper {
+  background: rgba(250, 87, 87, 0.15);
+  border-radius: 50%;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-text span {
+  color: #f9c74f;
+}
+
+/* =========================
+   LOGIN CARD (BASE)
+========================= */
+.login-card {
+  max-width: 420px;
+  width: 100%;
+  margin: 6rem auto 2rem;
+  padding: 1.5rem;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+  animation: fadeUp 0.4s ease;
+}
+
+/* TITLE */
+.login-h1 {
+  text-align: center;
+  font-weight: 800;
+  color: #023e8a;
+  margin-bottom: 10px;
+}
+
+/* =========================
+   FORM LAYOUT
+========================= */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* FULL WIDTH FIELDS */
+.full-width {
+  width: 100%;
+}
+
+/* INPUT ICON */
+mat-icon[matPrefix] {
+  color: #0077b6;
+}
+
+/* PASSWORD TOGGLE BUTTON */
+mat-icon-button {
+  color: #0077b6;
+}
+
+/* =========================
+   CHECKBOX
+========================= */
+mat-checkbox {
+  margin-top: 6px;
+  font-size: 0.9rem;
+}
+
+/* =========================
+   ERROR TEXT
+========================= */
+.error {
+  color: #d32f2f;
+  font-size: 0.85rem;
+  margin: 6px 0;
+}
+
+/* =========================
+   SUBMIT BUTTON
+========================= */
+button[type="submit"] {
+  width: 100%;
+  border-radius: 30px;
+  padding: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* =========================
+   REGISTER LINK
+========================= */
+mat-card-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+mat-card-actions a {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* =========================
+   ANIMATION
+========================= */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   RESPONSIVE TABLET
+========================= */
+@media (max-width: 768px) {
+  .login-card {
+    margin: 4rem 1rem 2rem;
+    padding: 1.2rem;
+    border-radius: 14px;
+  }
+
+  button[type="submit"] {
+    padding: 10px;
+  }
+}
+
+/* =========================
+   RESPONSIVE MOBILE
+========================= */
+@media (max-width: 480px) {
+  .login-card {
+    margin: 3rem 0.8rem;
+    padding: 1rem;
+  }
+
+  .login-h1 mat-card-title {
+    font-size: 1.2rem;
+  }
+
+  mat-checkbox {
+    font-size: 0.8rem;
+  }
+
+  button[type="submit"] {
+    font-size: 0.9rem;
+  }
+}
+
+/* =========================
+   SECTION HEADER
+========================= */
+.reviews-section {
+  padding: 40px 16px;
+  max-width: 1200px;
+  margin: auto;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  background: url("https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1600&auto=format&fit=crop&q=60")
+    no-repeat center/cover;
+    box-shadow: inset 0 0 0 1000px rgba(255, 255, 255, 0.548);
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.section-eyebrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  font-size: 30px;
+  color: #f4845f;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #023e8a;
+  margin: 8px 0;
+}
+
+.section-sub {
+  font-size: 16px;
+  color: #555;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* =========================
+   SLIDER WRAPPER
+========================= */
+.reviews-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* HORIZONTAL SCROLL */
+.reviews-grid {
+  display: flex;
+  gap: 18px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 10px;
+  scroll-snap-type: x mandatory;
+}
+
+.reviews-grid::-webkit-scrollbar {
+  display: none;
+}
+
+/* =========================
+   VACATION CARD
+========================= */
+.review-card {
+  flex: 0 0 300px;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 10px 28px rgba(0, 40, 90, 0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  scroll-snap-align: center;
+}
+
+.review-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 18px 50px rgba(0, 40, 90, 0.2);
+}
+
+/* IMAGE */
+.img-wrapper {
+  height: 60%;
+  overflow: hidden;
+}
+
+.card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.review-card:hover .card-img {
+  transform: scale(1.08);
+}
+
+/* HEADER */
+.card-header {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 12px 14px;
+}
+
+.review-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0077b6, #90e0ef);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+/* TEXT */
+.card-title {
+  font-weight: 700;
+  font-size: 1rem;
+  color: #222;
+  display: flex;
+  gap: 6px;
+}
+
+.card-subtitle {
+  font-size: 0.8rem;
+  color: #666;
+  display: flex;
+  gap: 4px;
+}
+
+/* CONTENT */
+.card-content {
+  padding: 0 14px 14px;
+  font-size: 0.9rem;
+  color: #444;
+  line-height: 1.5;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  background: #e0f7fa;
+  color: #0077b6;
+}
+
+/* ACTIONS */
+.card-actions {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 14px 14px;
+}
+
+.action-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  font-weight: 600;
+  font-size: 0.8rem;
+  color: #023e8a;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.action-btn:hover {
+  color: #f4845f;
+  transform: scale(1.05);
+}
+
+/* =========================
+   SCROLL BUTTONS
+========================= */
+.scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #fff;
+  border: none;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+  cursor: pointer;
+  z-index: 10;
+}
+
+.scroll-btn:hover {
+  background: #f4845f;
+  color: white;
+}
+
+.scroll-btn.left { left: -10px; }
+.scroll-btn.right { right: -10px; }
+
+/* =========================
+   FOOTER
+========================= */
+.footer {
+  text-align: center;
+  padding: 30px;
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.759);
+  font-size: 15px;
+}
+
+/* SOCIAL ICONS */
+.share-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.share-icons a {
+  width: 70px;
+  height: 70px;
+  border-radius: 35px;
+  background-color: whitesmoke;
+  color:#e0f7fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+}
+
+.share-icons a:hover {
+  background: #ffffff;
+  transform: scale(1.1);
+}
+
+.social-icon {
+  width: 60px;
+  height: 60px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 1024px) {
+  .review-card {
+    flex: 0 0 260px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .review-card {
+    flex: 0 0 240px;
+  }
+
+  .scroll-btn {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .review-card {
+    flex: 0 0 85%;
+  }
+}

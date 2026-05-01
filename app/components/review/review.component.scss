@@ -1,0 +1,205 @@
+/* BACKGROUND */
+.reviews-content {
+  --background: linear-gradient(
+      rgba(20, 30, 60, 0.85),
+      rgba(20, 30, 60, 0.85)
+    ),
+    url("https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=1600")
+      no-repeat center/cover;
+
+  font-family: "Segoe UI", sans-serif;
+}
+.button-text{
+  font-size: 20px;
+  margin-right: 20px;
+}
+
+
+/* HEADER */
+.app-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 0 16px;
+
+  .toolbar-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+
+  /* LOGO */
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+
+    .logo-icon-wrapper {
+      background: rgba(255, 255, 255, 0.15);
+      padding: 6px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-text {
+      font-size: 20px;
+      font-weight: 600;
+
+      span {
+        color: #ffcc00;
+      }
+    }
+  }
+
+  /* SPACER */
+  .spacer {
+    flex: 1;
+  }
+
+  /* ACTION BUTTONS */
+  .actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    .action-btn {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      border-radius: 8px;
+      padding: 6px 12px;
+      background-color: #00000016;
+      color: rgb(0, 0, 0);
+      transition: all 0.3s ease;
+
+      mat-icon {
+        font-size: 20px;
+      }
+
+      &:hover {
+        background: rgba(255, 234, 5, 0.473);
+      }
+    }
+  }
+
+  /* MOBILE TOGGLE */
+  .menu-toggle {
+    display: none;
+    color: rgb(0, 0, 0);
+  }
+/* CONTAINER */
+.reviews-container {
+  max-width: 900px;
+  margin: auto;
+  padding: 1rem;
+}
+
+/* CARD */
+.review-card {
+  margin-bottom: 1.5rem;
+  border-radius: 18px;
+
+  background: rgba(255, 209, 209, 0.12);
+
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  color: #fff;
+
+  transition: 0.3s;
+
+  &:hover {
+    transform: translateY(-6px);
+  }
+}
+
+/* HEADER INSIDE CARD */
+.review-header {
+  --background: transparent;
+
+  .user-name {
+    font-weight: 600;
+    font-size: 2rem;
+  }
+
+  .review-date {
+    font-size: 1rem;
+    color: #bbb;
+  }
+}
+
+/* AVATAR */
+ion-avatar img {
+  border-radius: 50%;
+  border: 2px solid #00c6ff;
+}
+
+/* RATING */
+.review-rating {
+  margin: 0.5rem 0;
+
+  ion-icon {
+    color: #ffd700;
+    font-size: 1.2rem;
+    margin-right: 3px;
+  }
+}
+
+/* COMMENT */
+.review-comment {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #eee;
+}
+
+/* ========================= */
+/*  MOBILE (default) */
+/* ========================= */
+
+/* already mobile-first */
+
+/* ========================= */
+/*  TABLET (≥768px) */
+/* ========================= */
+@media (min-width: 768px) {
+
+  .page-title {
+    font-size: 3rem;
+  }
+
+  .review-card {
+    padding: 0.5rem;
+  }
+}
+
+/* ========================= */
+/*  DESKTOP (≥1024px) */
+/* ========================= */
+@media (min-width: 1024px) {
+
+  .reviews-container {
+    max-width: 1000px;
+  }
+
+  .review-card {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+/* ========================= */
+/* 🖥 LARGE SCREENS (≥1200px) */
+/* ========================= */
+@media (min-width: 1200px) {
+
+  .reviews-container {
+    max-width: 1100px;
+  }
+
+  .review-card {
+    padding: 1rem;
+  }
+}
+}
