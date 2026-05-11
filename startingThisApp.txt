@@ -1,0 +1,13 @@
+/*First Run the Backend*/
+     node server.js
+
+Then it will run: Server running on http://localhost:3000
+
+/*Second Run the port*/
+      ng serve
+
+
+This will run both in the front-end and back-end
+admin@gmail.com', password: '123456', role: 'admin'
+
+Using the tack manager to add commit into the rewiews
